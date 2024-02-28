@@ -1506,8 +1506,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2ccac16b62111479000e56851c42af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
-  outputText: {fileID: 0}
+  inputField: {fileID: 1418785392}
+  outputText: {fileID: 1284125758}
 --- !u!1 &1890328266
 GameObject:
   m_ObjectHideFlags: 0
