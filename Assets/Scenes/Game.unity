@@ -310,7 +310,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -436,20 +435,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d2ccac16b62111479000e56851c42af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
-  outputText: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,7 +1055,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1208,7 +1193,7 @@ GameObject:
   - component: {fileID: 1413563351}
   - component: {fileID: 1413563350}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CheckBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1278,7 +1263,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 519420033}
+      - m_Target: {fileID: 1428283723}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: CheckBtn
         m_Mode: 1
@@ -1472,6 +1457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1428283721}
   - component: {fileID: 1428283722}
+  - component: {fileID: 1428283723}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1506,7 +1492,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2ccac16b62111479000e56851c42af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 1418785392}
+  inputField: {fileID: 0}
+  outputText: {fileID: 0}
+--- !u!114 &1428283723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428283719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d2ccac16b62111479000e56851c42af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputField: {fileID: 183906553}
   outputText: {fileID: 1284125758}
 --- !u!1 &1890328266
 GameObject:

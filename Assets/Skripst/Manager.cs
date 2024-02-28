@@ -20,7 +20,8 @@ public class NewBehaviourScript : MonoBehaviour
     //}
     public void Play()//переход на основную сцену игры
     {
-        Application.LoadLevel("Game");
+       
+        SceneManager.LoadScene("Game");
     }
     public void Exit()//выход(ну наверное)
     {

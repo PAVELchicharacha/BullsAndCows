@@ -1,37 +1,42 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
+using System.Linq;
+using static UnityEngine.Rendering.DebugUI;
+using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
     //[SerializeField] TextMeshProUGUI FourNumbers;
 
-    [SerializeField] public TextMeshProUGUI inputField;
+    [SerializeField] TMP_InputField inputField;
     [SerializeField] TextMeshProUGUI outputText;
-    
 
-     private int[] secretNumber;
+    int[] secretNumber = new int[4];
 
-    private void Start()
+    public void Start()
     {
-       secretNumber = GenerateSecretNumber();
+        secretNumber = GenerateSecretNumber();
     }
-
+    
     public void CheckBtn()
     {
-         CheckGuess();
+        CheckGuess();
     }
     public void CheckGuess()//передача данных в код
     {
-        string guess = inputField.ToString();
+        //inputField.enabled = true;
+        string guess = inputField.text;
         int[] guessArray = new int[4];
 
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < guess.Length; i++)
         {
-            guessArray[i] = int.Parse(guess[i].ToString());
+            guessArray[i] = guess[i];
         }
 
         int bulls = 0;
@@ -39,11 +44,14 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < 4; i++)//проверка положения цифры
         {
-            if (guessArray[i] == secretNumber[i])
+            int a = guessArray[i];
+            int b = secretNumber[i];
+
+            if (a -48 == b)
             {
                 bulls++;
             }
-            else if (Array.IndexOf(secretNumber, guessArray[i]) != -1)
+            else if(secretNumber.Contains(guessArray[i]))
             {
                 cows++;
             }
@@ -61,10 +69,16 @@ public class GameManager : MonoBehaviour
 
     private int[] GenerateSecretNumber()//делаем 4 цифорки для массива
     {
+        System.Random random = new System.Random();
         int[] number = new int[4];
         for (int i = 0; i < 4; i++)
         {
-            number[i] = UnityEngine.Random.Range(0, 10);
+            int num = random.Next(0, 10);
+            while (Array.IndexOf(number, num) != -1)
+            {
+                num = random.Next(0, 10);
+            }
+            number[i] = num;
         }
         return number;
     }
