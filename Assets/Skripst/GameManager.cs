@@ -45,13 +45,17 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 4; i++)//проверка положения цифры
         {
             int a = guessArray[i];
+            a = a - 48;//вычитаем 48 из-за переноса из юникода,где 1=49
             int b = secretNumber[i];
 
-            if (a -48 == b)
+            if (a == b)//сравниваем guessArray и secretNumber поэлементно
             {
                 bulls++;
             }
-            else if(secretNumber.Contains(guessArray[i]))
+            guessArray[i] = guessArray[i] - 48;//вычитаем 48 из-за переноса из юникода,где 1=49
+            bool hasCommonElement = guessArray.Intersect(secretNumber).Any();//используем метод Intersect для нахождения пересечения 2 массивов,
+                                                                             //а затем метод Any, чтобы проверить, есть ли в результате хотя бы один элемент
+            if (hasCommonElement)
             {
                 cows++;
             }
